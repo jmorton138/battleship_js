@@ -10,6 +10,7 @@ const Ship = (array) => {
     const hit = (position) => {
         const index = coordinates.indexOf(position);
         coordinates[index] = "hit";
+        return coordinates;
     }
 
     const isSunk = () => {
@@ -20,7 +21,7 @@ const Ship = (array) => {
         }
     }
 
-    return {shipLength, coordinates, isSunk}
+    return {shipLength, coordinates, hit, isSunk}
 }
 
 module.exports = Ship;
