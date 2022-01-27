@@ -16,7 +16,6 @@ const Gameboard = (size = 100) => {
             let coord = shipCoord[i];
             grid[coord] = "X";
         }
-        return grid;
 
     }
     createGrid(size);

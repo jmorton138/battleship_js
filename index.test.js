@@ -32,9 +32,18 @@ describe('Gameboard function', () => {
     test('Places ship at coordinates on grid', () => {
         const ship = Ship([0,1]);
         let game = Gameboard(5);
-        expect(game.placeShip(ship)).toEqual(expect.arrayContaining(["X", "X", 2, 3, 4]));
+        expect(game.grid).toEqual(expect.arrayContaining([0, 1, 2, 3, 4]));
+        game.placeShip(ship);
+        expect(game.grid).toEqual(expect.arrayContaining(["X", "X", 2, 3, 4]));
 
     });
+
+    test("receiveAttack returns false if coordinate isn't a hit", () => {
+        const x = 1;
+        const y = 1;
+        let game = Gameboard();
+        test(game.receiveAttack(x, y)).toBe(false);
+    })
 
 
 });
