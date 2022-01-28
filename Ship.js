@@ -1,12 +1,9 @@
 const Ship = (array) => {
     
     let coordinates = array;
-    let hitCoords = []
-
-    const shipLength = () => {
-        return array.length;
-    }
-
+    // Make sure the array is structured properly as nested arrays
+    let hitCoords = [];
+    const shipLength = array.length;
 
     const hit = (position) => {
         hitCoords.push(position);

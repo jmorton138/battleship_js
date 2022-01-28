@@ -42,14 +42,14 @@ describe('Gameboard function', () => {
         const ship = Ship([[0,0]]);
         const game = Gameboard(4);
         game.placeShip(ship);
-        expect(game.grid[0]).toStrictEqual(expect.arrayContaining(["0", 1, 2, 3]));
+        expect(game.grid[0]).toStrictEqual(expect.arrayContaining(["ship", 1, 2, 3]));
     });
 
     test('Places ship at coordinates on grid with doub coord ship', () => {
         const ship = Ship([[0,0], [0,1]]);
         const game = Gameboard(4);
         game.placeShip(ship);
-        expect(game.grid[0]).toStrictEqual(expect.arrayContaining(["0", "0", 2, 3]));
+        expect(game.grid[0]).toStrictEqual(expect.arrayContaining(["ship", "ship", 2, 3]));
     });
 
     test('Places ship at coordinates on grid with trip coord ship vertical', () => {
@@ -57,20 +57,47 @@ describe('Gameboard function', () => {
         const game = Gameboard(3);
         game.placeShip(ship);
         expect(game.grid).toEqual(expect.arrayContaining([
-            [0, "0", 2],
-            [0, "0", 2],
-            [0, "0", 2]]
+            [0, "ship", 2],
+            [0, "ship", 2],
+            [0, "ship", 2]]
         
         ));
     });
 
-    // test("receiveAttack returns false if coordinate isn't a hit", () => {
-    //     const x = 1;
-    //     const y = 1;
-    //     let game = Gameboard();
-    //     test(game.receiveAttack(x, y)).toBe(false);
-    // })
+    test('When attack is a hit receiveAttack updates appropriate ship and grid space', () => {
+        const ship = Ship([[0,1], [1,1], [2,1]]);
+        const game = Gameboard(3);
+        game.placeShip(ship);
+        game.receiveAttack(1, 1);
+        expect(ship.hitCoords).toStrictEqual([[1,1]]);
+        expect(game.grid[1][1]).toEqual("hit");
 
+    });
+
+    test('When attack is a miss receiveAttack updates appropriate grid space', () => {
+        const ship = Ship([[0,1], [1,1]]);
+        const game = Gameboard(3);
+        game.placeShip(ship);
+        game.receiveAttack(2, 1);
+        expect(ship.hitCoords).toStrictEqual([]);
+        expect(game.grid[2][1]).toEqual("miss");
+    });
+
+    test('allShipsSunk returns false when ships still on board', () => {
+        const ship = Ship([[0,1], [1,1]]);
+        const game = Gameboard(3);
+        game.placeShip(ship);
+        expect(game.allShipsSunk()).toBe(false);
+    })
+
+    test('allShipsSunk returns true when all ships sunk', () => {
+        const ship = Ship([[0,1], [1,1]]);
+        const game = Gameboard(3);
+        game.placeShip(ship);
+        game.receiveAttack(0, 1);
+        game.receiveAttack(1, 1);
+        expect(game.allShipsSunk()).toBe(true);
+    })
 
 });
 
