@@ -17,16 +17,13 @@ const Gameboard = (size = 10) => {
 
     const placeShip = (ship) => {
         const shipCoord = ship.coordinates;
-        for(let i=0; i < grid.length; i++) {
-            if (shipCoord[0] === i) {
-                for(let j=0; j < grid.length; j++) {
-                    if (shipCoord[1] === j) {
-                        grid[i][j] = "0";
-                   }
-               }
-            }
-  
+        for (let i=0; i < shipCoord.length; i++) {
+            let x = shipCoord[i][0];
+            let y = shipCoord[i][1];
+            grid[x][y] = "0";
         }
+
+ 
 
   
 

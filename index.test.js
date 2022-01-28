@@ -39,10 +39,29 @@ describe('Gameboard function', () => {
     });
 
     test('Places ship at coordinates on grid with single coord ship', () => {
-        const ship = Ship([0,0]);
+        const ship = Ship([[0,0]]);
         const game = Gameboard(4);
         game.placeShip(ship);
         expect(game.grid[0]).toStrictEqual(expect.arrayContaining(["0", 1, 2, 3]));
+    });
+
+    test('Places ship at coordinates on grid with doub coord ship', () => {
+        const ship = Ship([[0,0], [0,1]]);
+        const game = Gameboard(4);
+        game.placeShip(ship);
+        expect(game.grid[0]).toStrictEqual(expect.arrayContaining(["0", "0", 2, 3]));
+    });
+
+    test('Places ship at coordinates on grid with trip coord ship vertical', () => {
+        const ship = Ship([[0,1], [1,1], [2,1]]);
+        const game = Gameboard(3);
+        game.placeShip(ship);
+        expect(game.grid).toEqual(expect.arrayContaining([
+            [0, "0", 2],
+            [0, "0", 2],
+            [0, "0", 2]]
+        
+        ));
     });
 
     // test("receiveAttack returns false if coordinate isn't a hit", () => {
