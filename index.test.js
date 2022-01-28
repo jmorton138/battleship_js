@@ -25,7 +25,6 @@ describe('Ship function', () => {
         const ship = Ship([[2,3],[2,4]]);
         ship.hit([2,3]);
         ship.hit([2,4]);
-  
         expect(ship.isSunk()).toBe(true);
     });
 });
@@ -35,18 +34,16 @@ describe('Ship function', () => {
 
 describe('Gameboard function', () => {
 
-    test('grid function returns 100 length array on initialize', () => {
-        console.log(Gameboard().grid[1][6])
+    test('grid function returns 10 x 10 length array on initialize', () => {
+        console.log(Gameboard().grid)
     });
 
-    // test('Places ship at coordinates on grid', () => {
-    //     const ship = Ship([0,1]);
-    //     let game = Gameboard(5);
-    //     expect(game.grid).toEqual(expect.arrayContaining([0, 1, 2, 3, 4]));
-    //     game.placeShip(ship);
-    //     expect(game.grid).toEqual(expect.arrayContaining(["X", "X", 2, 3, 4]));
-
-    // });
+    test('Places ship at coordinates on grid with single coord ship', () => {
+        const ship = Ship([0,0]);
+        const game = Gameboard(4);
+        game.placeShip(ship);
+        expect(game.grid[0]).toStrictEqual(expect.arrayContaining(["0", 1, 2, 3]));
+    });
 
     // test("receiveAttack returns false if coordinate isn't a hit", () => {
     //     const x = 1;
