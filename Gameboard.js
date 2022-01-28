@@ -1,9 +1,15 @@
-const Gameboard = (size = 100) => {
+const Gameboard = (size = 10) => {
     let grid;
+
+
     const createGrid = (size) => {
         let array = []
         for (let i = 0; i < size; i++) {
-            array.push(i);
+            let xArray = []
+            for (let j = 0; j < size; j++) {
+                xArray.push(j);
+            }
+            array.push(xArray);
         }
         grid = array;
         return grid

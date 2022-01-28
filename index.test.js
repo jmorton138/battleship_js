@@ -3,19 +3,30 @@ const Gameboard = require('./Gameboard');
 
 describe('Ship function', () => {
     test('returns array of [0,1] when given this array as param', () => {
-        expect(Ship([0,1]).coordinates).toStrictEqual([0,1]);
+        expect(Ship([[0,1], [0, 2]]).coordinates).toStrictEqual([[0,1],[0,2]]);
     })
 
-    test('Returns [2] when hit at position 2', () => {
-        expect(Ship([2,3]).hit(2)).toStrictEqual(["hit", 3])
+    test('Pushes [2,3], [2,4] to hitCoords when hit at position [2,3] and [2,4]', () => {
+        const ship = Ship([[2,3],[2,4]])
+        expect(ship.hitCoords).toStrictEqual([]);
+        ship.hit([2,3]);
+        ship.hit([2,4]);
+        expect(ship.hitCoords).toStrictEqual([[2, 3], [2,4]]);
     });
     
     test('isSunk returns false if any unhit coordinates', () => {
-        expect(Ship([2, "hit", 4]).isSunk()).toBe(false);
+        const ship = Ship([[2,3],[2,4]]);
+        ship.hit([2,3]);
+
+        expect(ship.isSunk()).toBe(false);
     });
 
     test('isSunk returns true if no unhit coordinates', () => {
-        expect(Ship(["hit", "hit", "hit"]).isSunk()).toBe(true);
+        const ship = Ship([[2,3],[2,4]]);
+        ship.hit([2,3]);
+        ship.hit([2,4]);
+  
+        expect(ship.isSunk()).toBe(true);
     });
 });
 
@@ -25,25 +36,24 @@ describe('Ship function', () => {
 describe('Gameboard function', () => {
 
     test('grid function returns 100 length array on initialize', () => {
-        let gameboard = Gameboard();
-        expect(gameboard.grid.length).toStrictEqual(100);
+        console.log(Gameboard().grid[1][6])
     });
 
-    test('Places ship at coordinates on grid', () => {
-        const ship = Ship([0,1]);
-        let game = Gameboard(5);
-        expect(game.grid).toEqual(expect.arrayContaining([0, 1, 2, 3, 4]));
-        game.placeShip(ship);
-        expect(game.grid).toEqual(expect.arrayContaining(["X", "X", 2, 3, 4]));
+    // test('Places ship at coordinates on grid', () => {
+    //     const ship = Ship([0,1]);
+    //     let game = Gameboard(5);
+    //     expect(game.grid).toEqual(expect.arrayContaining([0, 1, 2, 3, 4]));
+    //     game.placeShip(ship);
+    //     expect(game.grid).toEqual(expect.arrayContaining(["X", "X", 2, 3, 4]));
 
-    });
+    // });
 
-    test("receiveAttack returns false if coordinate isn't a hit", () => {
-        const x = 1;
-        const y = 1;
-        let game = Gameboard();
-        test(game.receiveAttack(x, y)).toBe(false);
-    })
+    // test("receiveAttack returns false if coordinate isn't a hit", () => {
+    //     const x = 1;
+    //     const y = 1;
+    //     let game = Gameboard();
+    //     test(game.receiveAttack(x, y)).toBe(false);
+    // })
 
 
 });
