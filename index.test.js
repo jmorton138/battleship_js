@@ -1,5 +1,8 @@
 const Ship = require('./Ship');
 const Gameboard = require('./Gameboard');
+const Player = require('./Player');
+
+
 
 describe('Ship function', () => {
     test('returns array of [0,1] when given this array as param', () => {
@@ -99,5 +102,28 @@ describe('Gameboard function', () => {
         expect(game.allShipsSunk()).toBe(true);
     })
 
+    test('allShipsSunk returns true when all ships sunk (multiples on board)', () => {
+        const ship = Ship([[0,1], [1,1]]);
+        const ship1 = Ship([[2,2], [2,3]]);
+        const game = Gameboard();
+        game.placeShip(ship);
+        game.receiveAttack(0, 1);
+        game.receiveAttack(1, 1);
+        game.receiveAttack(2, 2);
+        game.receiveAttack(2, 3);
+        expect(game.allShipsSunk()).toBe(true);
+    })
+
+});
+
+describe('Player function', () => {
+    test('attacks enemy gameboard at [0, 1]', () => {
+        const p1 = Player();
+        const p2 = Player();
+        const p1Board = Gameboard();
+        const p2Board = Gameboard();
+        p1.attack([0,1])
+        expect(p2Board.grid[0][1]).toBe("miss");
+    });
 });
 
