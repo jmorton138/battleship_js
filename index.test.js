@@ -38,7 +38,7 @@ describe('Ship function', () => {
 describe('Gameboard function', () => {
 
     test('grid function returns 10 x 10 length array on initialize', () => {
-        console.log(Gameboard().grid)
+        // console.log(Gameboard().grid)
     });
 
     test('Places ship at coordinates on grid with single coord ship', () => {
@@ -71,7 +71,7 @@ describe('Gameboard function', () => {
         const ship = Ship([[0,1], [1,1], [2,1]]);
         const game = Gameboard(3);
         game.placeShip(ship);
-        game.receiveAttack(1, 1);
+        game.receiveAttack([1, 1]);
         expect(ship.hitCoords).toStrictEqual([[1,1]]);
         expect(game.grid[1][1]).toEqual("hit");
 
@@ -81,7 +81,7 @@ describe('Gameboard function', () => {
         const ship = Ship([[0,1], [1,1]]);
         const game = Gameboard(3);
         game.placeShip(ship);
-        game.receiveAttack(2, 1);
+        game.receiveAttack([2, 1]);
         expect(ship.hitCoords).toStrictEqual([]);
         expect(game.grid[2][1]).toEqual("miss");
     });
@@ -97,8 +97,8 @@ describe('Gameboard function', () => {
         const ship = Ship([[0,1], [1,1]]);
         const game = Gameboard(3);
         game.placeShip(ship);
-        game.receiveAttack(0, 1);
-        game.receiveAttack(1, 1);
+        game.receiveAttack([0, 1]);
+        game.receiveAttack([1, 1]);
         expect(game.allShipsSunk()).toBe(true);
     })
 
@@ -107,10 +107,10 @@ describe('Gameboard function', () => {
         const ship1 = Ship([[2,2], [2,3]]);
         const game = Gameboard();
         game.placeShip(ship);
-        game.receiveAttack(0, 1);
-        game.receiveAttack(1, 1);
-        game.receiveAttack(2, 2);
-        game.receiveAttack(2, 3);
+        game.receiveAttack([0, 1]);
+        game.receiveAttack([1, 1]);
+        game.receiveAttack([2, 2]);
+        game.receiveAttack([2, 3]);
         expect(game.allShipsSunk()).toBe(true);
     })
 
@@ -118,11 +118,11 @@ describe('Gameboard function', () => {
 
 describe('Player function', () => {
     test('attacks enemy gameboard at [0, 1]', () => {
-        const p1 = Player();
-        const p2 = Player();
-        const p1Board = Gameboard();
         const p2Board = Gameboard();
-        p1.attack([0,1])
+        const p1 = Player(1, p2Board);
+        const coords = p1.getCoords([0,1]);
+        console.log(coords);
+        p2Board.receiveAttack(coords);
         expect(p2Board.grid[0][1]).toBe("miss");
     });
 });

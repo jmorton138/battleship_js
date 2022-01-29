@@ -26,7 +26,9 @@ const Gameboard = (size = 10) => {
         }
     }
 
-    const receiveAttack = (x, y) => {
+    const receiveAttack = (coords) => {
+        const x = coords[0];
+        const y = coords[1];
         //hit successful?
         if (grid[x][y] === "ship") {
             grid[x][y] = "hit";
