@@ -125,5 +125,16 @@ describe('Player function', () => {
         p2Board.receiveAttack(coords);
         expect(p2Board.grid[0][1]).toBe("miss");
     });
+
+    test('computer attacks enemy gameboard case works', () => {
+        const p1Board = Gameboard();
+        const p2 = Player(2, p1Board);
+        const coords = p2.getCoords();
+        console.log(coords);
+        const x = coords[0];
+        const y = coords[1];
+        p1Board.receiveAttack(coords);
+        expect(p1Board.grid[x][y]).toBe("miss");
+    });
 });
 
