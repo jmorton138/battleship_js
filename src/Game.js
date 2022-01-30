@@ -25,11 +25,18 @@ const Game = () => {
 
 
     const gameLoop = (coords) => {
-        
+        //game over?
+        if (p2Board.allShipsSunk() || p1Board.allShipsSunk()) {
+            return "game over";
+        }
         //comp receives attack
         const x = coords[0];
         const y = coords[1];
+        if(p2Board.validateCoords(coords) === false) {
+            return;
+        }
         const attackReceived = p2Board.receiveAttack(coords);
+
         if (attackReceived === "hit") {
             updateCellView(coords);
             const ship = p2Board.shipGrid[x][y];
