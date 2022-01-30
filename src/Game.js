@@ -3,6 +3,9 @@ import Player from './Player';
 import CompPlayer from './CompPlayer';
 import PlayerBoardView from './playerBoardView';
 import { validate } from 'schema-utils';
+import gameOverView from './gameOverView';
+import updateCellView from './updateCellView';
+
 
 const Game = () => {
     //initialize gameboards
@@ -26,8 +29,9 @@ const Game = () => {
         //comp receives attack
         const x = coords[0];
         const y = coords[1];
-        const attackReceived = p2Board.receiveAttack(coords)
+        const attackReceived = p2Board.receiveAttack(coords);
         if (attackReceived === "hit") {
+            updateCellView(coords);
             const ship = p2Board.shipGrid[x][y];
             if (ship.isSunk());
                 //updates scores
@@ -35,6 +39,7 @@ const Game = () => {
         //game over?
         if (p2Board.allShipsSunk()) {
             console.log("game over, You win.");
+            return "game over";
         }
         //comp attack until valid
         let compAttack = p2.getCoords();
@@ -45,7 +50,9 @@ const Game = () => {
         PlayerBoardView(p1Board);
         //gameover?
         if (p1Board.allShipsSunk()) {
-            console.log("game over. You lose")
+            console.log("game over. You lose");
+            return "game over";
+
         }
         
 

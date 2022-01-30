@@ -32,7 +32,7 @@ const Gameboard = (size = 10) => {
         const array1 = [[0,1],[0,2],[0,3]];
         const ship1 = Ship(array1);
         const ship2 = Ship([[3,2], [3,3]]);
-        placeShip(ship1);
+        // placeShip(ship1);
         placeShip(ship2);
         
     }

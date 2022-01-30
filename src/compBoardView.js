@@ -1,4 +1,5 @@
 import Game from './Game';
+import updateCellView from './updateCellView';
 
 const compBoardView = (game) => {
     const content = document.querySelector("#comp-board");
@@ -9,9 +10,13 @@ const compBoardView = (game) => {
             div.textContent = item;
             div.className = "cell";
             const coords = [x, y];
-            div.addEventListener('click', function(){
-                game.gameLoop(coords);
-                compBoardView(game);
+            div.id = coords;
+            div.addEventListener('click', function() {
+                if(game.gameLoop(coords) === "game over") {
+                    return;
+                } else {
+                    compBoardView(game);
+                }
             });
             //remove onclick after firing
             content.appendChild(div);
