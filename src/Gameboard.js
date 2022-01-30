@@ -67,10 +67,8 @@ const Gameboard = (size = 10) => {
 
 
     const validateCoords = (coords) => {
-        console.log("run");
         for(let i=0; i < playedMoves.length; i++) {
                 if (playedMoves[i][0] === coords[0] && playedMoves[i][1] === coords[1]) {
-                    console.log(false);
                     return false;
                 }
             

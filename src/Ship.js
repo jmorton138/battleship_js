@@ -12,8 +12,6 @@ const Ship = (array) => {
 
     const isSunk = () => {
         let counter = 0;
-        console.log(coordinates);
-        console.log(hitCoords);
         if(coordinates.length === hitCoords.length) {
             for (let i = 0; i < coordinates.length; i++) {
                 for(let j = 0; j < hitCoords.length; j++) {
