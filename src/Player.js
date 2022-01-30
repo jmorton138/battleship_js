@@ -34,4 +34,4 @@ const Player = (num, gameboard) => {
     return {getCoords}
 }
 
-module.exports = Player;
+export default Player;

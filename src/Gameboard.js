@@ -1,3 +1,5 @@
+import Ship from './Ship';
+
 const Gameboard = (size = 10) => {
 
     const createGrid = (size) => {
@@ -26,11 +28,20 @@ const Gameboard = (size = 10) => {
         }
     }
 
+    const placeAllShips = () => {
+        const array1 = [[0,1],[0,2],[0,3]];
+        const ship1 = Ship(array1);
+        const ship2 = Ship([[3,2], [3,3]]);
+        placeShip(ship1);
+        placeShip(ship2);
+        
+    }
 
 
     const receiveAttack = (coords) => {
         const x = coords[0];
         const y = coords[1];
+
         //hit successful?
         if (grid[x][y] === "ship") {
             grid[x][y] = "hit";
@@ -57,11 +68,11 @@ const Gameboard = (size = 10) => {
     const validateMove = () => {
 
     }
-
     let grid = createGrid(size);
     let shipGrid = createGrid(size);
+    placeAllShips();
 
-    return {grid, placeShip, receiveAttack, allShipsSunk}
+    return {grid, placeShip, receiveAttack, allShipsSunk, shipGrid}
 }
 
-module.exports = Gameboard;
+export default Gameboard;

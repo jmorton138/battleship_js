@@ -1,6 +1,6 @@
 const Ship = (array) => {
     
-    let coordinates = array;
+    const coordinates = array;
     // Make sure the array is structured properly as nested arrays
     let hitCoords = [];
     const shipLength = array.length;
@@ -12,16 +12,20 @@ const Ship = (array) => {
 
     const isSunk = () => {
         let counter = 0;
+        console.log(coordinates);
+        console.log(hitCoords);
         if(coordinates.length === hitCoords.length) {
             for (let i = 0; i < coordinates.length; i++) {
                 for(let j = 0; j < hitCoords.length; j++) {
-                    if (coordinates[i][j] == hitCoords[i][j]) {
+                    if (coordinates[i][0] === hitCoords[j][0] && coordinates[i][1] === hitCoords[j][1]) {
                         counter ++;
+         
                     }
                 }
             }
-            if (counter === (coordinates.length * 2)) {
+            if (counter === (coordinates.length)) {
                 return true;
+                
             } else {
                 return false;
             }
@@ -34,4 +38,4 @@ const Ship = (array) => {
     return {shipLength, coordinates, hit, isSunk, hitCoords}
 }
 
-module.exports = Ship;
+export default Ship;
