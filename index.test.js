@@ -1,6 +1,6 @@
-const Ship = require('./Ship');
-const Gameboard = require('./Gameboard');
-const Player = require('./Player');
+const Ship = require('./src/Ship');
+const Gameboard = require('./src/Gameboard');
+const Player = require('./src/Player');
 
 
 
