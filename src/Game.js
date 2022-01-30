@@ -2,6 +2,7 @@ import Gameboard from './Gameboard';
 import Player from './Player';
 import CompPlayer from './CompPlayer';
 import PlayerBoardView from './playerBoardView';
+import { validate } from 'schema-utils';
 
 const Game = () => {
     //initialize gameboards
@@ -19,11 +20,6 @@ const Game = () => {
     //     p2: Player(2, p1Board)
     // }
 
-   
-
-    const isGameOver = () => {
-
-    }
 
     const gameLoop = (coords) => {
         
@@ -38,15 +34,21 @@ const Game = () => {
         }
         //game over?
         if (p2Board.allShipsSunk()) {
-            console.log("game over");
+            console.log("game over, You win.");
         }
         //comp attack until valid
-        const compAttack = p2.getCoords();
+        let compAttack = p2.getCoords();
+        while(p1Board.validateCoords(compAttack) === false) {
+            compAttack = p2.getCoords();
+        }
         p1Board.receiveAttack(compAttack);
         PlayerBoardView(p1Board);
+        //gameover?
+        if (p1Board.allShipsSunk()) {
+            console.log("game over. You lose")
+        }
         
 
-        //gameover?
 
         
     }

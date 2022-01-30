@@ -65,14 +65,26 @@ const Gameboard = (size = 10) => {
         return true;
     }
 
-    const validateMove = () => {
 
+    const validateCoords = (coords) => {
+        console.log("run");
+        for(let i=0; i < playedMoves.length; i++) {
+                if (playedMoves[i][0] === coords[0] && playedMoves[i][1] === coords[1]) {
+                    console.log(false);
+                    return false;
+                }
+            
+        }
+        playedMoves.push(coords);
+        return true;
     }
+
     let grid = createGrid(size);
     let shipGrid = createGrid(size);
     placeAllShips();
+    let playedMoves = [];
 
-    return {grid, placeShip, receiveAttack, allShipsSunk, shipGrid}
+    return {grid, placeShip, receiveAttack, allShipsSunk, shipGrid, validateCoords}
 }
 
 export default Gameboard;

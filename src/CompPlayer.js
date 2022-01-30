@@ -2,7 +2,6 @@
 const CompPlayer = (gameboard) => {
     const type = "comp";
     const board = gameboard;
-    let playedMoves  = [];
 
     const getCoords = () => {
         let x;
@@ -10,8 +9,10 @@ const CompPlayer = (gameboard) => {
         x = Math.floor(Math.random() * 10);
         y = Math.floor(Math.random() * 10);
         const array = [x, y];
-        return array
+        return array;
     }
+
+
     return {getCoords, type}
 }
 
