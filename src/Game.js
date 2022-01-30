@@ -1,6 +1,7 @@
 import Gameboard from './Gameboard';
 import Player from './Player';
 import CompPlayer from './CompPlayer';
+import PlayerBoardView from './playerBoardView';
 
 const Game = () => {
     //initialize gameboards
@@ -39,8 +40,12 @@ const Game = () => {
         if (p2Board.allShipsSunk()) {
             console.log("game over");
         }
-        //comp attack
-        //validate comp move
+        //comp attack until valid
+        const compAttack = p2.getCoords();
+        p1Board.receiveAttack(compAttack);
+        PlayerBoardView(p1Board);
+        
+
         //gameover?
 
         

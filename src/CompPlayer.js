@@ -1,8 +1,10 @@
+
 const CompPlayer = (gameboard) => {
     const type = "comp";
     const board = gameboard;
     let playedMoves  = [];
-    const getCoords = (coords) => {
+
+    const getCoords = () => {
         let x;
         let y;
         x = Math.floor(Math.random() * 10);
