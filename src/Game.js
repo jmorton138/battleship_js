@@ -1,5 +1,6 @@
 import Gameboard from './Gameboard';
 import Player from './Player';
+import CompPlayer from './CompPlayer';
 
 const Game = () => {
     //initialize gameboards
@@ -7,7 +8,7 @@ const Game = () => {
     const p2Board = Gameboard();
     //initialize players
     const p1 = Player(1, p2Board);
-    const p2 = Player(2, p1Board);
+    const p2 = CompPlayer(2, p1Board);
     //place ships
 
     // const object = {
@@ -31,12 +32,13 @@ const Game = () => {
         const attackReceived = p2Board.receiveAttack(coords)
         if (attackReceived === "hit") {
             const ship = p2Board.shipGrid[x][y];
-            ship.isSunk();
-
+            if (ship.isSunk());
+                //updates scores
         }
-            //issunk?
-            //updates scores
         //game over?
+        if (p2Board.allShipsSunk()) {
+            console.log("game over");
+        }
         //comp attack
         //validate comp move
         //gameover?
