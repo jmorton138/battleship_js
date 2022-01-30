@@ -26,6 +26,8 @@ const Gameboard = (size = 10) => {
         }
     }
 
+
+
     const receiveAttack = (coords) => {
         const x = coords[0];
         const y = coords[1];
@@ -50,6 +52,10 @@ const Gameboard = (size = 10) => {
             }            
         }
         return true;
+    }
+
+    const validateMove = () => {
+
     }
 
     let grid = createGrid(size);
