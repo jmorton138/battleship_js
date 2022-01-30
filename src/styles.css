@@ -1,14 +1,46 @@
 * {
     border: 1px solid red;
 }
+html, body {
+    margin: 0;
+    height: 100%;
+}
+header {
+    /* background: linear-gradient(#2b2828, #424040, #2b2828); */
+    background: #47422A;
+    color: white;
+
+}
+
+h1 {
+    font-family: 'Allerta Stencil';
+    font-weight: 100;
+    text-align: center;
+    font-size: 70px;
+
+}
 
 .board-container {
-    width: 80%;
+    width: 100%;
+    margin: auto;
+
     display: grid;
-    grid-template-columns: repeat(10, 1fr) ;
+    grid-template-columns: repeat(10, 62px) ;
+    grid-gap: 2px;
+    justify-self: center;
+    justify-content: center;
 }
+
+.cell {
+    height: 60px;
+    width: 60px;
+    margin: auto;
+}
+
+
 
 .boards-wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
 }

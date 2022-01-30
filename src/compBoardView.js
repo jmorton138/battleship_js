@@ -1,5 +1,4 @@
 import Game from './Game';
-import updateCellView from './updateCellView';
 
 const compBoardView = (game) => {
     const content = document.querySelector("#comp-board");
