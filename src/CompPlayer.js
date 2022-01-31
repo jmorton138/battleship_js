@@ -1,7 +1,6 @@
 
-const CompPlayer = (gameboard) => {
+const CompPlayer = () => {
     const type = "comp";
-    const board = gameboard;
 
     const getCoords = () => {
         let x;

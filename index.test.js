@@ -1,10 +1,7 @@
-// const Ship = require('./src/Ship');
-// const Gameboard = require('./src/Gameboard');
-// const Player = require('./src/Player');
-
 import Ship from './src/Ship';
 import Gameboard from './src/Gameboard';
 import Player from './src/Player';
+import CompPlayer from './src/CompPlayer';
 
 describe('Ship function', () => {
     test('returns array of [0,1] when given this array as param', () => {
@@ -128,11 +125,14 @@ describe('Player function', () => {
         expect(p2Board.grid[0][1]).toBe("miss");
     });
 
+
+});
+
+describe('CompPlayer function', () => {
     test('computer attacks enemy gameboard case works', () => {
         const p1Board = Gameboard();
-        const p2 = Player(2, p1Board);
+        const p2 = CompPlayer(p1Board);
         const coords = p2.getCoords();
-        console.log(coords);
         const x = coords[0];
         const y = coords[1];
         p1Board.receiveAttack(coords);

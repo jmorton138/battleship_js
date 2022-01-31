@@ -13,7 +13,7 @@ const Game = () => {
     const p2Board = Gameboard();
     //initialize players
     const p1 = Player(1, p2Board);
-    const p2 = CompPlayer(2, p1Board);
+    const p2 = CompPlayer();
     //place ships
 
     // const object = {

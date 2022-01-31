@@ -79,7 +79,6 @@ const Gameboard = (size = 10) => {
 
     let grid = createGrid(size);
     let shipGrid = createGrid(size);
-    placeAllShips();
     let playedMoves = [];
 
     return {grid, placeShip, receiveAttack, allShipsSunk, shipGrid, validateCoords}
