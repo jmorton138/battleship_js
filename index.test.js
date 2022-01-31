@@ -1,10 +1,10 @@
-const Ship = require('./src/Ship');
-const Gameboard = require('./src/Gameboard');
-const Player = require('./src/Player');
+// const Ship = require('./src/Ship');
+// const Gameboard = require('./src/Gameboard');
+// const Player = require('./src/Player');
 
-// import Ship from './src/Ship';
-// import Gameboard from './src/Gameboard';
-// import Player from './src/Player';
+import Ship from '../src/Ship';
+import Gameboard from '../src/Gameboard';
+import Player from '../src/Player';
 
 describe('Ship function', () => {
     test('returns array of [0,1] when given this array as param', () => {
