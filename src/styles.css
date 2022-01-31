@@ -1,5 +1,5 @@
 * {
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 html, body {
     margin: 0;
@@ -9,7 +9,7 @@ header {
     /* background: linear-gradient(#2b2828, #424040, #2b2828); */
     background: #47422A;
     color: white;
-
+    margin-bottom: 150px;
 }
 
 h1 {
@@ -17,7 +17,16 @@ h1 {
     font-weight: 100;
     text-align: center;
     font-size: 70px;
+    margin: 0;
+    padding: 100px;
 
+}
+
+.game-over {
+    text-align: center;
+    font-family: 'Allerta Stencil';
+    margin-top: 0;
+    margin-bottom: 100px;
 }
 
 .board-container {
@@ -35,6 +44,7 @@ h1 {
     height: 60px;
     width: 60px;
     margin: auto;
+    background: cadetblue;
 }
 
 

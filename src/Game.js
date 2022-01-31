@@ -2,7 +2,7 @@ import Gameboard from './Gameboard';
 import Player from './Player';
 import CompPlayer from './CompPlayer';
 import PlayerBoardView from './playerBoardView';
-import { validate } from 'schema-utils';
+// import { validate } from 'schema-utils';
 import gameOverView from './gameOverView';
 import updateCellView from './updateCellView';
 
@@ -45,7 +45,8 @@ const Game = () => {
         }
         //game over?
         if (p2Board.allShipsSunk()) {
-            console.log("game over, You win.");
+            const message = "You win."
+            gameOverView(message);
             return "game over";
         }
         //comp attack until valid
@@ -57,7 +58,8 @@ const Game = () => {
         PlayerBoardView(p1Board);
         //gameover?
         if (p1Board.allShipsSunk()) {
-            console.log("game over. You lose");
+            const message = "Game over man! You lose.";
+            gameOverView(message);
             return "game over";
 
         }
