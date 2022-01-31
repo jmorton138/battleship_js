@@ -2,9 +2,8 @@ import Gameboard from './Gameboard';
 import Player from './Player';
 import CompPlayer from './CompPlayer';
 import PlayerBoardView from './playerBoardView';
-// import { validate } from 'schema-utils';
 import gameOverView from './gameOverView';
-import updateCellView from './updateCellView';
+import displayCellView from './displayCellView';
 
 
 const Game = () => {
@@ -38,7 +37,7 @@ const Game = () => {
         const attackReceived = p2Board.receiveAttack(coords);
 
         if (attackReceived === "hit") {
-            updateCellView(coords);
+            displayCellView(coords, "hit");
             const ship = p2Board.shipGrid[x][y];
             if (ship.isSunk());
                 //updates scores
