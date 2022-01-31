@@ -5,7 +5,11 @@ const PlayerBoardView = (gameboard) => {
     gameboard.grid.forEach((row, x) => {
         row.forEach((item, y) => {
             const div = document.createElement('div');
-            div.textContent = item;
+            if (item === "ship" || item === "miss" || item === "hit") {
+                div.textContent = item;
+            } else {
+                div.textContent = " ";
+            }
             div.className = "cell";
             const coords = [x, y];
             content.appendChild(div);
