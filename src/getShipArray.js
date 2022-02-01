@@ -9,7 +9,12 @@ const getShipArray = (len, id) => {
         let coords = [];
         coords[0] = id[0];
         coords[1] = i;
-        array.push(coords);
+        const cell = document.getElementById(`p1:${coords}`);
+        if (cell.textContent === "ship") {
+            return false
+        } else {
+            array.push(coords);
+        }
     }
     return array;
 }

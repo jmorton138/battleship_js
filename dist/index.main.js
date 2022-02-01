@@ -196,7 +196,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst getShipArray = (len, id) => {\n    let i = id[1];\n    len = i + len;\n    let array = [];\n    if (len > 10) {\n        return false;\n    }\n    for(i; i < len; i++) {\n        let coords = [];\n        coords[0] = id[0];\n        coords[1] = i;\n        array.push(coords);\n    }\n    return array;\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getShipArray);\n\n//# sourceURL=webpack://battleship_js/./src/getShipArray.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst getShipArray = (len, id) => {\n    let i = id[1];\n    len = i + len;\n    let array = [];\n    if (len > 10) {\n        return false;\n    }\n    for(i; i < len; i++) {\n        let coords = [];\n        coords[0] = id[0];\n        coords[1] = i;\n        const cell = document.getElementById(`p1:${coords}`);\n        if (cell.textContent === \"ship\") {\n            return false\n        } else {\n            array.push(coords);\n        }\n    }\n    return array;\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getShipArray);\n\n//# sourceURL=webpack://battleship_js/./src/getShipArray.js?");
 
 /***/ }),
 
@@ -226,7 +226,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst mouseOverHoriz = (len, id) => {\n    let i = id[1];\n    len = i + len;\n    let array = [];\n    for(i; i < len; i++) {\n        let coords = [];\n        coords[0] = id[0];\n        coords[1] = i;\n        array.push(coords);\n        document.getElementById(`p1:${coords}`).classList.add(\"place-ship-hover\");\n    }\n    return array;\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (mouseOverHoriz);\n\n\n//# sourceURL=webpack://battleship_js/./src/mouseOverHoriz.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst mouseOverHoriz = (len, id) => {\n    let i = id[1];\n    len = i + len;\n    for(i; i < len; i++) {\n        let coords = [];\n        coords[0] = id[0];\n        coords[1] = i;\n        document.getElementById(`p1:${coords}`).classList.add(\"place-ship-hover\");\n    }\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (mouseOverHoriz);\n\n\n//# sourceURL=webpack://battleship_js/./src/mouseOverHoriz.js?");
 
 /***/ }),
 
