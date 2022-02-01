@@ -10,6 +10,7 @@ const Game = () => {
     //initialize gameboards
     const p1Board = Gameboard();
     const p2Board = Gameboard();
+    p2Board.placeCompShips();
     //initialize players
     const p1 = Player(1, p2Board);
     const p2 = CompPlayer();

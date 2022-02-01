@@ -37,7 +37,7 @@ describe('Ship function', () => {
 describe('Gameboard function', () => {
 
     test('grid function returns 10 x 10 length array on initialize', () => {
-        // console.log(Gameboard().grid)
+        console.log(Gameboard().grid)
     });
 
     test('Places ship at coordinates on grid with single coord ship', () => {
