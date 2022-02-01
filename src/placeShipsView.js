@@ -21,11 +21,15 @@ const placeShipsView = (game, i = 0) => {
             div.onmouseout = () => mouseOutHoriz(shipLen[i], coords);
             div.onclick = function() {
                 const array = getShipArray(shipLen[i], coords)
-                const ship = Ship(array);
-                game.p1Board.placeShip(ship);
-                PlayerBoardView(game.p1Board);
-                i++;
+                if (array !== false) {
+                    const ship = Ship(array);
+                    game.p1Board.placeShip(ship);
+                    PlayerBoardView(game.p1Board);
+                    i++;
+                }
                 placeShipsView(game, i);
+
+ 
             } 
         })
     });
