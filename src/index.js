@@ -14,6 +14,7 @@ function main() {
         const reset = document.querySelector('#reset');
         reset.onclick = () => {
             const newGame = Game();
+            document.querySelector('#rotate').getElementsByClassName.display = "block";
             document.querySelector('.game-over').innerHTML ="";
             const compboard = document.querySelector("#comp-board");
             compboard.innerHTML ="";
