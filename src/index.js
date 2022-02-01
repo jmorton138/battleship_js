@@ -9,7 +9,6 @@ function main() {
     const game = Game();
 
     document.addEventListener('DOMContentLoaded', () => {
-
         PlayerBoardView(game.p1Board);
         placeShipsView(game);
         const reset = document.querySelector('#reset');

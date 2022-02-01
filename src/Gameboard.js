@@ -17,6 +17,18 @@ const Gameboard = (size = 10) => {
         return grid
     }
 
+    const cellsFree = (ship) => {
+        const shipCoords = ship.coordinates;
+        for (let i=0; i < shipCoords.length; i++) {
+            let x = shipCoords[i][0];
+            let y = shipCoords[i][1];
+            if (grid[x][y] === "ship") {
+                return false;
+            }
+        }
+
+    }
+
     const placeShip = (ship) => {
         const shipCoord = ship.coordinates;
         for (let i=0; i < shipCoord.length; i++) {
@@ -24,8 +36,10 @@ const Gameboard = (size = 10) => {
             let y = shipCoord[i][1];
             //updates controller grid
             grid[x][y] = "ship";
-            //stores instance of ship in seperate grid
             shipGrid[x][y] = ship;
+     
+            
+            //stores instance of ship in seperate grid
         }
     }
 
@@ -38,9 +52,8 @@ const Gameboard = (size = 10) => {
         
     // }
 
-    //where should this go?
     const placeCompShips = (i = 0) => {
-        if (i > 5) {
+        if (i > 4) {
             return
         }
         // random number to decide if vertical or horiz
@@ -49,7 +62,7 @@ const Gameboard = (size = 10) => {
         let y;
         if (random % 2 === 0) {
             x = 0;
-            y = 1
+            y = 1;
         } else {
             x = 1;
             y = 0;
@@ -72,9 +85,15 @@ const Gameboard = (size = 10) => {
             coordArray.push(coords);
         }
         const ship = Ship(coordArray);
-        placeShip(ship);
-        i++
-        placeCompShips(i);
+
+        if (cellsFree(ship) === false) {
+            placeCompShips(i);
+        } else {
+            i++;
+            placeShip(ship);
+            placeCompShips(i);
+
+        }
 
     }
 
