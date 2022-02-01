@@ -6,7 +6,7 @@ import PlayerBoardView from "./playerBoardView";
 import compBoardView from "./compBoardView";
 
 
-const placeShipsView = (game, i = 0) => {
+const placeShipsView = (game, i = 0, num = 1) => {
     if (i > 4) {
         document.querySelector('#rotate').style.display = "none";
         compBoardView(game);
@@ -15,7 +15,8 @@ const placeShipsView = (game, i = 0) => {
 
     let shipLen = [5, 4, 3, 3, 2];
     const rotate = document.querySelector('#rotate');
-    let num = 1;
+ 
+
     rotate.onclick = () => { 
         num++;
     }
@@ -27,14 +28,14 @@ const placeShipsView = (game, i = 0) => {
             div.onmouseover = () => mouseOver(shipLen[i], coords, num);
             div.onmouseout = () => mouseOut(shipLen[i], coords, num);
             div.onclick = function() {
-                const array = getShipArray(shipLen[i], coords)
+                const array = getShipArray(shipLen[i], coords, num)
                 if (array !== false) {
                     const ship = Ship(array);
                     game.p1Board.placeShip(ship);
                     PlayerBoardView(game.p1Board);
                     i++;
                 }
-                placeShipsView(game, i);
+                placeShipsView(game, i, num);
 
  
             } 

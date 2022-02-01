@@ -1,4 +1,5 @@
 const mouseOut = (len, id, num) => {
+
     let x;
     let y;
     if (num % 2 === 0) {
