@@ -13,9 +13,8 @@ const game = Game();
 //     // renderBoardView(grid, "#comp-board");
 // })
 document.addEventListener('DOMContentLoaded', () => {
-    compBoardView(game);
     PlayerBoardView(game.p1Board);
-    placeShipsView(game.p1Board);
+    placeShipsView(game);
 
 
 })

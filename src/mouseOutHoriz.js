@@ -5,7 +5,7 @@ const mouseOutHoriz = (len, id) => {
         let coords = [];
         coords[0] = id[0];
         coords[1] = i;
-        document.getElementById(coords).classList.remove("place-ship-hover");
+        document.getElementById(`p1:${coords}`).classList.remove("place-ship-hover");
     }
 }
 

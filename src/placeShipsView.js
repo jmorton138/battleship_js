@@ -1,21 +1,34 @@
 import mouseOverHoriz from "./mouseOverHoriz";
 import mouseOutHoriz from "./mouseOutHoriz";
+import getShipArray from "./getShipArray";
+import Ship from "./Ship";
+import PlayerBoardView from "./playerBoardView";
+import compBoardView from "./compBoardView";
 
-const placeShipsView = (gameboard, i = 0) => {
+
+const placeShipsView = (game, i = 0) => {
+    if (i > 4) {
+        compBoardView(game);
+        return;
+    }
     let shipLen = [5, 4, 3, 3, 2];
     //create grid and add mouse over event to each cell
-    gameboard.grid.forEach((row, x) => {
+    game.p1Board.grid.forEach((row, x) => {
         row.forEach((item, y) => {
             const coords = [x, y];
-            const div = document.getElementById(`p1: ${coords}`);
+            const div = document.getElementById(`p1:${coords}`);
             div.onmouseover = () => mouseOverHoriz(shipLen[i], coords);
             div.onmouseout = () => mouseOutHoriz(shipLen[i], coords);
+            div.onclick = function() {
+                const array = getShipArray(shipLen[i], coords)
+                const ship = Ship(array);
+                game.p1Board.placeShip(ship);
+                PlayerBoardView(game.p1Board);
+                i++;
+                placeShipsView(game, i);
+            } 
         })
     });
-    // add onclick event that does same thing as mouseover,
-    // but on backend and calls placeships
-    //once array/all ships have been placed, returns
-
 }
 
 export default placeShipsView;
