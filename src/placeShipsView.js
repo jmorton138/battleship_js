@@ -1,4 +1,5 @@
 import mouseOverHoriz from "./mouseOverHoriz";
+import mouseOutHoriz from "./mouseOutHoriz";
 
 const placeShipsView = (gameboard, i = 0) => {
     let shipLen = [5, 4, 3, 3, 2];
@@ -8,6 +9,7 @@ const placeShipsView = (gameboard, i = 0) => {
             const coords = [x, y];
             const div = document.getElementById(`${coords}`);
             div.onmouseover = () => mouseOverHoriz(shipLen[i], coords);
+            div.onmouseout = () => mouseOutHoriz(shipLen[i], coords);
         })
     });
     // add onclick event that does same thing as mouseover,

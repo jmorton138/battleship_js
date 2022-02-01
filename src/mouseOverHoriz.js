@@ -3,11 +3,9 @@ const mouseOverHoriz = (len, id) => {
     len = i + len;
     for(i; i < len; i++) {
         let coords = [];
-        console.log(i);
         coords[0] = id[0];
         coords[1] = i;
-        console.log(coords);
-        document.getElementById(coords).style.background ="red";
+        document.getElementById(coords).classList.add("place-ship-hover");
     }
 }
 

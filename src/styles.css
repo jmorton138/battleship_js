@@ -47,6 +47,11 @@ h1 {
     background: cadetblue;
 }
 
+.place-ship-hover {
+    background-color: red;
+
+}
+
 #comp-board .cell:hover {
     background-color: crimson;
 }
