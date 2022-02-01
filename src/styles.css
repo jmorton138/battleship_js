@@ -47,10 +47,20 @@ h1 {
     background: cadetblue;
 }
 
+#comp-board .cell:hover {
+    background-color: crimson;
+}
+
 
 
 .boards-wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
+}
+
+footer {
+    height: 200px;
+    margin-bottom: 0;
+    margin-top: 200px;
 }

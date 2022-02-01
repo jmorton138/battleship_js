@@ -3,6 +3,7 @@ import Game from './Game';
 import compBoardView from './compBoardView';
 import './styles.css';
 import PlayerBoardView from './playerBoardView';
+import placeShipsView from './placeShipsView';
 const game = Game();
 
 
@@ -14,6 +15,7 @@ const game = Game();
 document.addEventListener('DOMContentLoaded', () => {
     compBoardView(game);
     PlayerBoardView(game.p1Board);
+    placeShipsView(game.p2Board);
 
 })
 
