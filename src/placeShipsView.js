@@ -7,7 +7,7 @@ const placeShipsView = (gameboard, i = 0) => {
     gameboard.grid.forEach((row, x) => {
         row.forEach((item, y) => {
             const coords = [x, y];
-            const div = document.getElementById(`${coords}`);
+            const div = document.getElementById(`p1: ${coords}`);
             div.onmouseover = () => mouseOverHoriz(shipLen[i], coords);
             div.onmouseout = () => mouseOutHoriz(shipLen[i], coords);
         })

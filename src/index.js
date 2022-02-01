@@ -15,7 +15,8 @@ const game = Game();
 document.addEventListener('DOMContentLoaded', () => {
     compBoardView(game);
     PlayerBoardView(game.p1Board);
-    placeShipsView(game.p2Board);
+    placeShipsView(game.p1Board);
+
 
 })
 

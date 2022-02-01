@@ -12,6 +12,7 @@ const PlayerBoardView = (gameboard) => {
             }
             div.className = "cell";
             const coords = [x, y];
+            div.id = `p1: ${coords}`;
             content.appendChild(div);
         }
 
