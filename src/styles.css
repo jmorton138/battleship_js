@@ -37,6 +37,11 @@ h2  {
     text-align: center;
 }
 
+.game-over h2 {
+    font-size: 70px;
+    padding: 40px;
+}
+
 .player-info {
     margin: 0;
     display: flex;
@@ -92,9 +97,13 @@ p {
 }
 
 .cell {
+    font-weight: bold;
+    display: grid;
+    align-items: center;
     height: 60px;
     width: 60px;
     margin: auto;
+    text-align: center;
     background: cadetblue;
 }
 
@@ -129,6 +138,9 @@ button {
 button:hover {
     background-color: navy;
     color: white;
+}
+#reset {
+    margin-top: 40px;
 }
 
 #rotate {

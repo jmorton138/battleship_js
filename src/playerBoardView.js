@@ -7,8 +7,18 @@ const PlayerBoardView = (gameboard) => {
     gameboard.grid.forEach((row, x) => {
         row.forEach((item, y) => {
             const div = document.createElement('div');
-            if (item === "ship" || item === "miss" || item === "hit") {
-                div.textContent = item;
+
+            if (item === "ship") {
+                div.style.background = "silver";
+                div.textContent = " ";
+            } else if (item === "miss") {
+                div.innerHTML = `<i class="fas fa-water"></i>`;
+                div.style.color = "navy";
+
+            }  else if (item === "hit") {
+                div.textContent = "X";
+                div.style.background = "#2f3030";
+                div.style.color = "red";
             } else {
                 div.textContent = " ";
             }
