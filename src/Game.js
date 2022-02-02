@@ -39,11 +39,14 @@ const Game = () => {
 
         if (attackReceived2 === "hit") {
             displayCellView(coords, "hit");
+            const playerinfo = document.querySelector('.player-info');
             const ship2 = p2Board.shipGrid[x][y];
             if (ship2.isSunk() === true) {
                 //updates scores
-                p1.score++;
+                p1Board.score++;
             }
+            playerinfo.textContent = `Score: ${p1Board.score}`;
+
     
         }
         //game over?
@@ -63,7 +66,7 @@ const Game = () => {
             const b = compAttack[1];
             const ship1 = p1Board.shipGrid[a][b];
             if (ship1.isSunk()) {
-                p2.score++;
+                p2Board.score++;
             }
         }
 

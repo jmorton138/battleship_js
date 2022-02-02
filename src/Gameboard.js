@@ -2,7 +2,7 @@ import CompPlayer from './CompPlayer';
 import Ship from './Ship';
 
 const Gameboard = (size = 10) => {
-
+    let score = 0;
     const createGrid = (size) => {
         let grid;
         let array = []
@@ -139,7 +139,16 @@ const Gameboard = (size = 10) => {
     let grid = createGrid(size);
     let shipGrid = createGrid(size);
     let playedMoves = [];
-    return {grid, placeShip, receiveAttack, allShipsSunk, shipGrid, validateCoords, placeCompShips}
+    return {
+        grid, 
+        placeShip, 
+        receiveAttack, 
+        allShipsSunk, 
+        shipGrid, 
+        validateCoords, 
+        placeCompShips, 
+        score
+    }
 }
 
 export default Gameboard;

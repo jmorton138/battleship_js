@@ -1,7 +1,6 @@
 
 const CompPlayer = () => {
     const type = "comp";
-    let score = 0;
 
     const getCoords = () => {
         let x;
@@ -13,7 +12,7 @@ const CompPlayer = () => {
     }
 
 
-    return {getCoords, type, score}
+    return {getCoords, type}
 }
 
 export default CompPlayer;

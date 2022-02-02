@@ -15,6 +15,7 @@ const placeShipsView = (game, i = 0, num = 1) => {
     compinfo.innerHTML = ""
     if (i > 4) {
         document.querySelector('.player-info').innerHTML = "";
+        playerinfo.textContent = `Score: ${game.p1Board.score}`;
         compBoardView(game);
         return;
     }

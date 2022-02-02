@@ -2,7 +2,6 @@ const Player = (gameboard) => {
     const board = gameboard;
     let playedMoves  = [];
     const type = "human";
-    let score = 0;
 
     const getCoords = (coords) => {
         let x;
@@ -15,7 +14,7 @@ const Player = (gameboard) => {
 
 
     
-    return {getCoords, type, score}
+    return {getCoords, type}
 }
 
 export default Player;
