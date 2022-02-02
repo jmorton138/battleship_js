@@ -7,14 +7,12 @@ import placeShipsView from './placeShipsView';
 
 function main() {
     const game = Game();
-
     document.addEventListener('DOMContentLoaded', () => {
         PlayerBoardView(game.p1Board);
         placeShipsView(game);
         const reset = document.querySelector('#reset');
         reset.onclick = () => {
             const newGame = Game();
-            document.querySelector('#rotate').style.display = "block";
             document.querySelector('.game-over').innerHTML ="";
             const compboard = document.querySelector("#comp-board");
             compboard.innerHTML ="";

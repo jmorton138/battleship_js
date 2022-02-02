@@ -35,13 +35,16 @@ const Game = () => {
         if(p2Board.validateCoords(coords) === false) {
             return;
         }
-        const attackReceived = p2Board.receiveAttack(coords);
+        const attackReceived2 = p2Board.receiveAttack(coords);
 
-        if (attackReceived === "hit") {
+        if (attackReceived2 === "hit") {
             displayCellView(coords, "hit");
-            const ship = p2Board.shipGrid[x][y];
-            if (ship.isSunk());
+            const ship2 = p2Board.shipGrid[x][y];
+            if (ship2.isSunk() === true) {
                 //updates scores
+                p1.score++;
+            }
+    
         }
         //game over?
         if (p2Board.allShipsSunk()) {
@@ -54,7 +57,18 @@ const Game = () => {
         while(p1Board.validateCoords(compAttack) === false) {
             compAttack = p2.getCoords();
         }
-        p1Board.receiveAttack(compAttack);
+        const attackReceived1 = p1Board.receiveAttack(compAttack);
+        if (attackReceived1 === "hit") {
+            const a = compAttack[0];
+            const b = compAttack[1];
+            const ship1 = p1Board.shipGrid[a][b];
+            if (ship1.isSunk()) {
+                p2.score++;
+                console.log(p2.score)
+            }
+        }
+
+ 
         PlayerBoardView(p1Board);
         //gameover?
         if (p1Board.allShipsSunk()) {

@@ -12,23 +12,22 @@ const Ship = (array) => {
 
     const isSunk = () => {
         let counter = 0;
-        if(coordinates.length === hitCoords.length) {
+ 
+        if (coordinates.length !== hitCoords.length){
+            return false;
+        } else if(coordinates.length === hitCoords.length) {
             for (let i = 0; i < coordinates.length; i++) {
                 for(let j = 0; j < hitCoords.length; j++) {
                     if (coordinates[i][0] === hitCoords[j][0] && coordinates[i][1] === hitCoords[j][1]) {
                         counter ++;
-         
                     }
                 }
             }
             if (counter === (coordinates.length)) {
                 return true;
-                
             } else {
                 return false;
             }
-        } else if (coordinates.length !== hitCoords.length){
-            return false;
         }
 
     }
