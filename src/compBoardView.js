@@ -4,6 +4,8 @@ import displayCellView from './displayCellView';
 const compBoardView = (game) => {
     const content = document.querySelector("#comp-board");
     content.innerHTML = "";
+    const compInfo = document.querySelector('.comp-info');
+    compInfo.textContent = `Score: ${game.p2.score}`;
     game.p2Board.grid.forEach((row, x) => {
         row.forEach((item, y) => {
             const div = document.createElement('div');

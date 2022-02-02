@@ -6,12 +6,15 @@
 html, body {
     margin: 0;
     min-height: 100%;
+    min-width: 100%;
     position: relative;
 }
 header {
     /* background: linear-gradient(#2b2828, #424040, #2b2828); */
     background: #47422A;
     color: white;
+    min-width: 100%;
+
 }
 
 h1 {

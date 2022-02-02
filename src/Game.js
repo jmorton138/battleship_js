@@ -64,7 +64,6 @@ const Game = () => {
             const ship1 = p1Board.shipGrid[a][b];
             if (ship1.isSunk()) {
                 p2.score++;
-                console.log(p2.score)
             }
         }
 
