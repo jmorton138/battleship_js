@@ -1,5 +1,5 @@
 * {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     font-family: 'Allerta Stencil';
 
 }
@@ -37,10 +37,14 @@ h2  {
     text-align: center;
 }
 
-.player-prompt div {
+.player-info {
     margin: 0;
     display: flex;
     justify-content: center;
+}
+.comp-info {
+    text-align: center;
+
 }
 
 .game-over {
@@ -72,8 +76,19 @@ p {
     justify-self: center;
     justify-content: center;
 }
+.wait-msg {
+    padding: 251px 0px;
+    font-size: 40px;
+    text-align: center;
+    grid-column: -11/-1;
+    grid-row: 1/2;
+    margin: 0;
+    border: 1px solid grey;
+
+}
 #comp-board {
     height: 100%;
+
 }
 
 .cell {

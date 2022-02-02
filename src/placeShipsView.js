@@ -10,7 +10,10 @@ const placeShipsView = (game, i = 0, num = 1) => {
     const playerinfo = document.querySelector('.player-info');
     const compinfo = document.querySelector('.comp-info');
     const compBoard = document.querySelector('#comp-board');
-    compBoard.textContent = "Waiting...";
+    const waitmessage = document.createElement('h3');
+    waitmessage.className ="wait-msg";
+    waitmessage.textContent = "Waiting...";
+    compBoard.appendChild(waitmessage);
     playerinfo.innerHTML = "";
     compinfo.innerHTML = ""
     if (i > 4) {
