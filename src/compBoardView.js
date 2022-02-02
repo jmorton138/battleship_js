@@ -12,6 +12,7 @@ const compBoardView = (game) => {
             const coords = [x, y];
             div.id = coords;
             div.className = "cell";
+            
             div.addEventListener('click', function() {
                 if(game.gameLoop(coords) === "game over") {
                     compInfo.textContent = `Score: ${game.p2Board.score}`;

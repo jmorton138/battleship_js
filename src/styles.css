@@ -113,7 +113,7 @@ p {
 }
 
 #comp-board .cell:hover {
-    background-color: crimson;
+    background-color: darkred;
 }
 
 
