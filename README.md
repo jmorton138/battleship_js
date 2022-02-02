@@ -24,7 +24,7 @@ Immediately after your turn the computer will take it's shot.
 
 When either player has sunk an enemy ship by hitting all of a ship's available coordinates, that player's score will increment by 1 and be shown on screen.
 
-First player to sink all of the enemy ships wins.
+First player to sink all of the enemy ships and get a score of 5 wins.
 
 ## About computer opponent
 
@@ -35,7 +35,7 @@ This could be made more sophisticated by giving the computer strategies to follo
 ## Getting started
 
 ### Quick start
-You can play the game by visiting it's Github Pages url: https://jmorton138.github.io/battleship_js/
+You can play the game by visiting its Github Pages url: https://jmorton138.github.io/battleship_js/
 
 
 
