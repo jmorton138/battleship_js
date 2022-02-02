@@ -7,15 +7,31 @@ import compBoardView from "./compBoardView";
 
 
 const placeShipsView = (game, i = 0, num = 1) => {
+    const playerinfo = document.querySelector('.player-info');
+    const compinfo = document.querySelector('.comp-info');
+
+    playerinfo.innerHTML = "";
+    compinfo.innerHTML = ""
     if (i > 4) {
-        document.querySelector('#rotate').style.display = "none";
+        document.querySelector('.player-info').innerHTML = "";
         compBoardView(game);
         return;
     }
 
     let shipLen = [5, 4, 3, 3, 2];
-    const rotate = document.querySelector('#rotate');
- 
+    //setup player info interface
+    const p = document.createElement('p');
+    p.textContent = "Place your pieces.";
+    playerinfo.appendChild(p);
+    const rotate = document.createElement('button');
+    rotate.textContent = "Rotate";
+    rotate.id = "rotate";
+    playerinfo.appendChild(rotate);
+
+    //setup comp info interface 
+    const compP = document.createElement('p');
+    compP.textContent = "Waiting for you to place your pieces.";
+    compinfo.appendChild(compP);
 
     rotate.onclick = () => { 
         num++;

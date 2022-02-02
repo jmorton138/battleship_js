@@ -1,15 +1,17 @@
 * {
-    /* border: 1px solid red; */
+    border: 1px solid red;
+    font-family: 'Allerta Stencil';
+
 }
 html, body {
     margin: 0;
-    height: 100%;
+    min-height: 100%;
+    position: relative;
 }
 header {
     /* background: linear-gradient(#2b2828, #424040, #2b2828); */
     background: #47422A;
     color: white;
-    margin-bottom: 150px;
 }
 
 h1 {
@@ -22,13 +24,41 @@ h1 {
 
 }
 
+.prompt-wrapper {
+    text-align: center;
+    padding: 20px;
+}
+
+h2  {
+    margin: 0;
+    text-align: center;
+}
+
+.player-prompt div {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
 .game-over {
     text-align: center;
     font-family: 'Allerta Stencil';
     margin-top: 0;
-    margin-bottom: 100px;
 }
 
+.player-prompt, .comp-prompt {
+    display: grid;
+    padding: 20px;
+    grid-gap: 5px;
+    
+}
+
+.comp-prompt {
+    align-self: start;
+}
+p {
+    margin: 0;
+}
 .board-container {
     width: 100%;
     margin: auto;
@@ -38,6 +68,9 @@ h1 {
     grid-gap: 2px;
     justify-self: center;
     justify-content: center;
+}
+#comp-board {
+    height: 100%;
 }
 
 .cell {
@@ -62,6 +95,27 @@ h1 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
+}
+.player-interface {
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+button {
+    padding: 20px 40px;
+    background-color: white;
+    border: 1px solid navy;
+    color: navy;
+
+}
+button:hover {
+    background-color: navy;
+    color: white;
+}
+
+#rotate {
+    padding: 5px 30px;
+    margin-left: 20px;
 }
 
 footer {
