@@ -79,7 +79,7 @@ p {
   justify-content: center;
 }
 .wait-msg {
-  padding: 251px 0px;
+  padding: 150px 0px;
   font-size: 40px;
   text-align: center;
   grid-column: -11/-1;
