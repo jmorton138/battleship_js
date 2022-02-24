@@ -1,155 +1,146 @@
 * {
-    /* border: 1px solid red; */
-    font-family: 'Allerta Stencil';
-
+  /* border: 1px solid red; */
+  font-family: "Allerta Stencil";
 }
-html, body {
-    margin: 0;
-    min-height: 100%;
-    min-width: 100%;
-    position: relative;
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  min-width: 100%;
+  position: relative;
 }
 header {
-    /* background: linear-gradient(#2b2828, #424040, #2b2828); */
-    background: #47422A;
-    color: white;
-    min-width: 100%;
-
+  /* background: linear-gradient(#2b2828, #424040, #2b2828); */
+  background: #47422a;
+  color: white;
+  min-width: 100%;
 }
 
 h1 {
-    font-family: 'Allerta Stencil';
-    font-weight: 100;
-    text-align: center;
-    font-size: 70px;
-    margin: 0;
-    padding: 100px;
-
+  font-family: "Allerta Stencil";
+  font-weight: 100;
+  text-align: center;
+  font-size: 70px;
+  margin: 0;
+  padding: 100px;
 }
 
 .prompt-wrapper {
-    text-align: center;
-    padding: 20px;
+  text-align: center;
+  padding: 20px;
 }
 
-h2  {
-    margin: 0;
-    text-align: center;
+h2 {
+  margin: 0;
+  text-align: center;
 }
 
 .game-over h2 {
-    font-size: 70px;
-    padding: 40px;
+  font-size: 70px;
+  padding: 40px;
 }
 
 .player-info {
-    margin: 0;
-    display: flex;
-    justify-content: center;
+  margin: 0;
+  display: flex;
+  justify-content: center;
 }
 .comp-info {
-    text-align: center;
-
+  text-align: center;
 }
 
 .game-over {
-    text-align: center;
-    font-family: 'Allerta Stencil';
-    margin-top: 0;
+  text-align: center;
+  font-family: "Allerta Stencil";
+  margin-top: 0;
 }
 
-.player-prompt, .comp-prompt {
-    display: grid;
-    padding: 20px;
-    grid-gap: 5px;
-    
+.player-prompt,
+.comp-prompt {
+  display: grid;
+  padding: 20px;
+  grid-gap: 5px;
 }
 
 .comp-prompt {
-    align-self: start;
+  align-self: start;
 }
 p {
-    margin: 0;
+  margin: 0;
 }
 .board-container {
-    width: 100%;
-    margin: auto;
+  width: 100%;
+  margin: auto;
 
-    display: grid;
-    grid-template-columns: repeat(10, 62px) ;
-    grid-gap: 2px;
-    justify-self: center;
-    justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(10, 62px);
+  grid-gap: 2px;
+  justify-self: center;
+  justify-content: center;
 }
 .wait-msg {
-    padding: 251px 0px;
-    font-size: 40px;
-    text-align: center;
-    grid-column: -11/-1;
-    grid-row: 1/2;
-    margin: 0;
-    border: 1px solid grey;
-
+  padding: 251px 0px;
+  font-size: 40px;
+  text-align: center;
+  grid-column: -11/-1;
+  grid-row: 1/2;
+  margin: 0;
+  border: 1px solid grey;
 }
 #comp-board {
-    height: 100%;
-
+  height: 100%;
 }
 
 .cell {
-    font-weight: bold;
-    display: grid;
-    align-items: center;
-    height: 60px;
-    width: 60px;
-    margin: auto;
-    text-align: center;
-    background: cadetblue;
+  font-weight: bold;
+  display: grid;
+  align-items: center;
+  height: 60px;
+  width: 60px;
+  margin: auto;
+  text-align: center;
+  background: cadetblue;
 }
 
 .place-ship-hover {
-    background-color: darkslategrey;
-
+  background-color: darkslategrey;
 }
 
 #comp-board .cell:hover {
-    background-color: darkred;
+  background-color: darkred;
 }
-
-
 
 .boards-wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
 }
 .player-interface {
-    display: grid;
-    grid-template-rows: 1fr auto;
+  display: grid;
+  grid-template-rows: 1fr auto;
 }
 
 button {
-    padding: 20px 40px;
-    background-color: white;
-    border: 1px solid navy;
-    color: navy;
-
+  padding: 20px 40px;
+  background-color: white;
+  border: 1px solid navy;
+  color: navy;
 }
 button:hover {
-    background-color: navy;
-    color: white;
+  background-color: navy;
+  color: white;
 }
 #reset {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 
 #rotate {
-    padding: 5px 30px;
-    margin-left: 20px;
+  padding: 5px 30px;
+  margin-left: 20px;
 }
 
 footer {
-    height: 200px;
-    margin-bottom: 0;
-    margin-top: 200px;
+  height: 200px;
+  margin-bottom: 0;
+  margin-top: 200px;
 }
